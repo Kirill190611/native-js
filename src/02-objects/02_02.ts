@@ -1,24 +1,24 @@
-type AddressGovernmentBuildingsProps = {
+export type AddressGovernmentBuildingsProps = {
     street: StreetProps
 }
 
-type GovernmentBuildingsProps = {
+export type GovernmentBuildingsProps = {
     type: string
     budget: number
     staffCount: number
     address: AddressGovernmentBuildingsProps
 }
 
-type StreetProps = {
+export type StreetProps = {
     title: string
 }
 
-type AddressProps = {
+export type AddressProps = {
     number: number
     street: StreetProps
 }
 
-type HousesProps = {
+export type HousesProps = {
     buildAt: number
     repaired: boolean
     address: AddressProps
