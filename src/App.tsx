@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import {User} from "./06-callback-onclick-onchange/06";
 
 function App() {
     const names = [
@@ -55,6 +56,7 @@ function App() {
                 ___________
                 {elements}
             </ul>
+            <User/>
         </div>
     );
 }
