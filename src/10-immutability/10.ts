@@ -145,7 +145,7 @@ export const updateCompanyTitle = (u: UserType, companyId: number, updatedTitle:
     }
 }
 
-export const updateCompany = (companies: CompaniesType,
+export const updateCompany = (companies: CompanyType,
                               userName: string,
                               companyId: number,
                               newTitle: string) => {
