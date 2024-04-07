@@ -2,11 +2,11 @@ import {
     makeManCopy,
     makeManCopy1,
     makeManCopy2,
-    makeManCopy3, makeManCopy4, makeManCopy5, makeManCopy6,
+    makeManCopy3, makeManCopy4, makeManCopy5, makeManCopy6, makeManCopy7, makeManCopy8,
     makeNumbersCopy,
     ManProps,
     ManProps2,
-    ManProps3, ManProps4, ManProps5,
+    ManProps3, ManProps4, ManProps5, ManProps6, ManProps7,
 } from "./10_01";
 
 test("simple copy of object", () => {
@@ -163,4 +163,91 @@ test("copy of Array of objects inside object -> object", () => {
     expect(man5FullCopy.mother.parents[1].name).toBe(man5.mother.parents[1].name);
     expect(man5FullCopy.mother.parents[0].age).toBe(man5.mother.parents[0].age);
     expect(man5FullCopy.mother.parents[1].age).toBe(man5.mother.parents[1].age);
+})
+
+test("copy of Object inside an object -> array -> object ->  object", () => {
+    let man6: ManProps6 = {
+        name: 'John',
+        age: 28,
+        mother: {
+            name: "Kate",
+            age: 50,
+            work: {
+                position: "doctor",
+                experience: 15
+            },
+            parents: [
+                {
+                    name: "Kevin",
+                    age: 80,
+                    favoriteDish: {
+                        title: "borscht"
+                    }
+                },
+                {
+                    name: "Jennifer",
+                    age: 78,
+                    favoriteDish: {
+                        title: "sushi"
+                    }
+                },
+            ]
+        }
+    };
+
+    let man6FullCopy = makeManCopy7(man6);
+
+    expect(man6).toStrictEqual(man6FullCopy);
+    expect(man6FullCopy.mother.parents[0].favoriteDish.title).toBe("borscht");
+    expect(man6FullCopy.mother.parents[1].favoriteDish.title).toBe("sushi");
+    expect(man6FullCopy.mother.parents[0].favoriteDish.title).toBe(man6.mother.parents[0].favoriteDish.title);
+    expect(man6FullCopy.mother.parents[1].favoriteDish.title).toBe(man6.mother.parents[1].favoriteDish.title);
+})
+
+test("copy of Array of objects inside an object -> object -> array -> object ->  object", () => {
+    let man7: ManProps7 = {
+        name: 'John',
+        age: 28,
+        mother: {
+            name: "Kate",
+            age: 50,
+            work: {
+                position: "doctor",
+                experience: 15
+            },
+            parents: [
+                {
+                    name: "Kevin",
+                    age: 80,
+                    favoriteDish: {
+                        title: "borscht",
+                        ingredients: [
+                            {title: "beet", amount: 3},
+                            {title: "potatoes", amount: 5},
+                            {title: "carrot", amount: 1},
+                        ]
+                    }
+                },
+                {
+                    name: "Jennifer",
+                    age: 78,
+                    favoriteDish: {
+                        title: "sushi",
+                        ingredients: [
+                            {title: "fish", amount: 1},
+                            {title: "rise", amount: 0.5}
+                        ]
+                    }
+                },
+            ]
+        }
+    };
+
+    let man7FullCopy = makeManCopy8(man7);
+
+    expect(man7).toStrictEqual(man7FullCopy);
+    expect(man7.mother.parents[1].favoriteDish.title).toBe(man7FullCopy.mother.parents[1].favoriteDish.title)
+    expect(man7.mother.parents[1].favoriteDish.ingredients[0].title).toBe(man7FullCopy.mother.parents[1].favoriteDish.ingredients[0].title)
+    expect(man7.mother.parents[1].favoriteDish.ingredients[0].amount).toBe(man7FullCopy.mother.parents[1].favoriteDish.ingredients[0].amount)
+
 })
