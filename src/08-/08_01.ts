@@ -1,3 +1,4 @@
+/*
 type MentorsProps = {
     "id": string
     "title": string
@@ -14,8 +15,8 @@ const mentors: Array<MentorsProps> = [
 const artemId = 'id489829898989';
 const mentor1 = mentors.find(m => m.id === artemId); // const mentor = mentors[3] (O(n))
 const mentor2 = mentors[3] // 0(1)
-/*mentor1.salary = 50;
-mentor2.salary = 50;*/
+/!*mentor1.salary = 50;
+mentor2.salary = 50;*!/
 mentor1["my salary"] = 50;
 mentor2["my salary"] = 50;
 console.log(mentor1["id"]);
@@ -88,3 +89,4 @@ const studentsObj: StudentsObjProps = {
 const marina2 = studentsObj['id1000000'];
 const tech2 = marina2.technologies["4"];
 tech2.title = "React";
+*/

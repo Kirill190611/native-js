@@ -1,9 +1,9 @@
 import React from 'react';
 import './App.css';
-import {User} from "./06-callback-onclick-onchange/06";
+/*import {User} from "./06-callback-onclick-onchange/06";*/
 
 function App() {
-    const names = [
+/*    const names = [
         "Kirill", "Anastasiya", "Viktor", "Ignat", "Artem", "Sergey"
     ]
 
@@ -47,16 +47,16 @@ function App() {
             <div><b>Name: </b> {user.name}</div>
             <div><b>Age: </b> {user.age}</div>
         </li>)
-    )
+    )*/
 
     return (
         <div className="App">
-            <ul>
+            {/*<ul>
                 {liElements}
                 ___________
                 {elements}
             </ul>
-            <User/>
+            <User/>*/}
         </div>
     );
 }
