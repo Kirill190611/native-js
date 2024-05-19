@@ -1,5 +1,5 @@
-const axios = {}
-const findUserInDB = (id) => {
+export const axios = {}
+export const findUserInDB = (id) => {
 
 }
 
@@ -63,4 +63,4 @@ otherPromise
                 console.log(dataFromGoogle.data.vacancies + "; " + userFromDB.name)
     })
 
-//Todo: need start from 
+//Todo: need start from
