@@ -63,4 +63,4 @@ otherPromise
                 console.log(dataFromGoogle.data.vacancies + "; " + userFromDB.name)
     })
 
-//Todo: need start from
+//Todo: need start from 1:58:23
