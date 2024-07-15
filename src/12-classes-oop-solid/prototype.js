@@ -1,12 +1,15 @@
-function DeleteUserAction(userId) {
-    //this = {}
-    this.type = 'DELETE-USER';
-    this.payload = {
-        userId: userId
-    }
+function User(name, site, dob) {
+    this.name = name;
+    this.site = site;
+    this.dateOfBirth = dob;
 }
 
-const action1 = new DeleteUserAction(12345);
-const action2 = new DeleteUserAction(1234523);
+User.prototype.hello = function () {
+    console.log(`I am ${this.name} from ${this.site}`)
+}
 
-//start from 16:20
+const u1 = new User("DDD", '123.ru', new Date(1994, 6, 19))
+const u2 = new User("AAA", '456.com', new Date(2004, 6, 19))
+
+u1.hello();
+u2.hello();
