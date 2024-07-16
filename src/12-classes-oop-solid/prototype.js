@@ -13,3 +13,5 @@ const u2 = new User("AAA", '456.com', new Date(2004, 6, 19))
 
 u1.hello();
 u2.hello();
+
+//Pratice with thunk types
