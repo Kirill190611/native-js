@@ -1,62 +1,47 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
-/*import {User} from "./06-callback-onclick-onchange/06";*/
+
 
 function App() {
-/*    const names = [
-        "Kirill", "Anastasiya", "Viktor", "Ignat", "Artem", "Sergey"
-    ]
 
-    const users = [
-        {
-            id: 1,
-            name: "Kirill",
-            age: 10,
-        },
-        {
-            id: 2,
-            name: "Anastasiya",
-            age: 11,
-        },
-        {
-            id: 3,
-            name: "Viktor",
-            age: 12,
-        },
-        {
-            id: 4,
-            name: "Ignat",
-            age: 13,
-        },
-        {
-            id: 5,
-            name: "Artem",
-            age: 14,
-        },
-        {
-            id: 6,
-            name: "Sergey",
-            age: 15,
-        },
+    const [value, setValue] = useState<number>(0);
 
-    ]
+    const incHandler = () => {
+        setValue(value + 1)
+    }
 
-    const liElements = names.map(name => <li>{name}</li>)
-    const elements = users.map(user => (
-        <li key={user.id}>
-            <div><b>Name: </b> {user.name}</div>
-            <div><b>Age: </b> {user.age}</div>
-        </li>)
-    )*/
+    const setToLocalStorageHandler = () => {
+        //code
+        localStorage.setItem("counter value", JSON.stringify(value))
+        localStorage.setItem("counter value + 1", JSON.stringify(value + 1))
+    }
+
+    const getFromLocalStorageHandler = () => {
+        //code
+        let valueAsString = localStorage.getItem("counter value");
+        if (valueAsString) {
+            let newValue = JSON.parse(valueAsString);
+            setValue(newValue);
+        }
+    }
+
+    const clearLocalStorageHandler = () => {
+        localStorage.clear();
+        setValue(0);
+    }
+
+    const removeItemFormLocalStorageHandler = () => {
+        localStorage.removeItem("counter value + 1")
+    }
 
     return (
         <div className="App">
-            {/*<ul>
-                {liElements}
-                ___________
-                {elements}
-            </ul>
-            <User/>*/}
+            <h1>{value}</h1>
+            <button onClick={incHandler}>inc</button>
+            <button onClick={setToLocalStorageHandler}>setToLocalStorage</button>
+            <button onClick={getFromLocalStorageHandler}>getFromLocalStorage</button>
+            <button onClick={clearLocalStorageHandler}>clearLocalStorage</button>
+            <button onClick={removeItemFormLocalStorageHandler}>removeItemFormLocalStorage</button>
         </div>
     );
 }
