@@ -1,10 +1,20 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import './App.css';
+import {useDispatch, useSelector} from "react-redux";
+import {AppStateType} from "./bll/store";
+import {incValueAC} from "./bll/counter-reducer";
 
 
 function App() {
 
-    const [value, setValue] = useState<number>(0);
+    const value = useSelector<AppStateType, number>( state => state.counter.value )
+    const dispatch = useDispatch()
+
+    const incHandler = () => {
+        dispatch(incValueAC())
+    }
+
+    /*const [value, setValue] = useState<number>(0);
 
     useEffect(() => {
         let valueAsString = localStorage.getItem("counter value");
@@ -16,11 +26,9 @@ function App() {
 
     useEffect(() => {
         localStorage.setItem("counter value", JSON.stringify(value))
-    }, [value])
+    }, [value])*/
 
-    const incHandler = () => {
-        setValue(value + 1)
-    }
+
 
     return (
         <div className="App">
