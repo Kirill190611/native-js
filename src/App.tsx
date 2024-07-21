@@ -6,10 +6,9 @@ import {
 } from "react-redux";
 import {AppStateType} from "./bll/store";
 import {
-    incValuesTC,
-    setValueFromLocalstorageTC
+    IncValueAC,
+    SetValuesFromLocalstorageAC
 } from "./bll/counter-reducer";
-
 
 function App() {
 
@@ -17,13 +16,11 @@ function App() {
     const dispatch = useDispatch()
 
     useEffect(() => {
-        // @ts-ignore
-        dispatch(setValueFromLocalstorageTC())
+        dispatch(SetValuesFromLocalstorageAC(value))
     }, [])
 
     const incHandler = () => {
-        // @ts-ignore
-        dispatch(incValuesTC())
+        dispatch(IncValueAC())
     }
 
     return (

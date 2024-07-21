@@ -45,6 +45,7 @@ export const SetValuesFromLocalstorageAC = (value: number) => (
 
 //THUNK
 
+/*
 export const incValuesTC = () => (dispatch: Dispatch<CounterActionsType>, getState: () => AppStateType) => {
     localStorage.setItem("counter value", JSON.stringify(getState().counter.value + 1))
     dispatch(IncValueAC())
@@ -55,4 +56,4 @@ export const setValueFromLocalstorageTC = () => (dispatch: Dispatch<CounterActio
     if (valueAsString) {
         dispatch(SetValuesFromLocalstorageAC(JSON.parse(valueAsString)))
     }
-}
+}*/
