@@ -13,3 +13,5 @@ findUserInDB(1)
     .then(friend1Id => findUserInDB(friend1Id))
     .then(friend2 => console.log(friend2.name))
     .catch(error => alert(error))
+
+//Todo: start from 1:07:00 (promise part1)
