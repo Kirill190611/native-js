@@ -13,5 +13,3 @@ findUserInDB(1)
     .then(friend1Id => findUserInDB(friend1Id))
     .then(friend2 => console.log(friend2.name))
     .catch(error => alert(error))
-
-//Todo: need to check additional video about promises
