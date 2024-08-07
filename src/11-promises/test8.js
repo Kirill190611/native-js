@@ -1,4 +1,4 @@
-//Result: + + + + + + - + +
+//Result: + + + + + + - + + + + + -
 
 /*//1Q:
 let pr = new Promise((res, rej) => res("Oleg"));
@@ -79,13 +79,63 @@ async function yo() {
 
 //Result: "yo", тк первая асинхронная ф-ция вернет объект промиса, который зарезолвлен 'yo', далее в ф-ции есть await, который дожидается резолв промиса, который соответственно зарезолвится значением 'yo'.  +*/
 
-//9Q:
+/*//9Q:
 import {axios} from "./index";
 
 axios.get('https://nl.com/user/12')
     .then(user => axios.get('https://belbank.by/') + user.accountNumber)
     .then(accountNumber => console.log(accountNumber.money))
 
-//Result: можно ли так писать? Ответ: да.
+//Result: можно ли так писать? Ответ: да.*/
 
-//Todo: start from 00:38:40
+/*//10Q:
+let pr5 = new Promise((res, rej) => {
+    res("Oleg")
+})
+
+pr5
+    .then(res => 1)
+    .then(res => Promise.resolve(res + 2))
+    .then(res => Promise.resolve(res - 1))
+    .then(res => res + 2)
+    .then(res => console.log(res))
+
+//Result: 4*/
+
+/*//11Q:
+let pr6 = new Promise((res, rej) => {
+    rej("Oleg")
+})
+
+// pr6.then((res) => {console.log("res1:" , res)}, (res) => {console.log("res2:" , res)})
+pr6
+    .then(res => console.log("res1: ", res))
+    .catch((error) => console.log("res2: ", error))
+
+//Result: в then можно использовать 2 колбэка, 1 для фулфилд статуса, второй для реджекта. В данном случае отработает второй, тк в пр6 зареджектился Олегом и отобразится Олег.*/
+
+/*//12Q:
+let pr7 = new Promise((res, rej) => {
+    res("Oleg");
+    rej("Sasha");
+})
+
+//Result: сработает только резолв*/
+
+/*
+//13Q:
+let pr8 = new Promise((res, rej) => {
+    rej("Sasha");
+});
+
+(async function () {
+    try {
+        let res = await pr8
+        console.log(res)
+    }
+    catch (error) {
+        console.log(error)
+    }
+})()
+
+//Result: -*/
